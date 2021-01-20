@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-DevIO.App-080EBAAF-240B-4ECB-9BC2-035821DBCBB4</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
+    <PackageReference Include="automapper.extensions.microsoft.dependencyinjection" Version="6.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DevIO.Business\DevIO.Business.csproj" />
+    <ProjectReference Include="..\DevIO.Data\DevIO.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\imagens\" />
+  </ItemGroup>
+
+</Project>
