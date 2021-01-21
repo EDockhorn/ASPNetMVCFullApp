@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
-using DevIO.App.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using DevIO.App.ViewModels;
 using DevIO.Business.Interfaces;
@@ -11,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace DevIO.App.Controllers
 {
+    [Authorize]
     public class FornecedoresController : BaseController
     {
         private readonly IFornecedorRepository _fornecedorRepository;
@@ -27,6 +27,7 @@ namespace DevIO.App.Controllers
             _fornecedorService = fornecedorService;
         }
 
+        [AllowAnonymous]
         [Route("lista-de-fornecedores")]
         public async Task<IActionResult> Index()
         {

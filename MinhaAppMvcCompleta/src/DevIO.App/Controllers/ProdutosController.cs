@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace DevIO.App.Controllers
 {
+    [Authorize]
     public class ProdutosController : BaseController
     {
         private readonly IProdutoRepository _produtoRepository;
