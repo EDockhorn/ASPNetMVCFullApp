@@ -64,7 +64,6 @@ namespace DevIO.App.Controllers
             await _fornecedorService.Adicionar(fornecedor);
 
             if (!OperacaoValida()) return View(fornecedorViewModel);
-
             
             return RedirectToAction("Index");
         }

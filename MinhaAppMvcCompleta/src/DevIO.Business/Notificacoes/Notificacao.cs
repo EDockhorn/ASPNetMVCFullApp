@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace DevIO.Business.Notificacoes
+﻿namespace DevIO.Business.Notificacoes
 {
     public class Notificacao
     {
@@ -9,7 +7,6 @@ namespace DevIO.Business.Notificacoes
             Mensagem = mensagem;
         }
 
-        public string Mensagem { get;}
-
+        public string Mensagem { get; }
     }
 }
