@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using DevIO.Data.Context;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using KissLog;
 
 namespace DevIO.App
 {
@@ -21,16 +22,23 @@ namespace DevIO.App
                 .AddJsonFile($"appsettings.{hostEnvironment.EnvironmentName}.json", true, true)
                 .AddEnvironmentVariables();
 
-            if (hostEnvironment.IsDevelopment())
-            {
-                builder.AddUserSecrets<Startup>();
-            }
+            //if (hostEnvironment.IsDevelopment())
+            //{
+            //    builder.AddUserSecrets<Startup>();
+            //}
+
+            builder.AddUserSecrets<Startup>();
 
             Configuration = builder.Build();
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ILogger>((context) =>
+            {
+                return Logger.Factory.Get();
+            });
+
             services.AddIdentityConfiguration(Configuration);
 
             services.AddDbContext<MeuDbContext>(options =>
@@ -53,8 +61,9 @@ namespace DevIO.App
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                //app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/erro/500");
+                app.UseStatusCodePagesWithRedirects("/erro/{0}");
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
@@ -64,6 +73,8 @@ namespace DevIO.App
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseRegisterLogConfig(Configuration);
 
             app.UseEndpoints(endpoints =>
             {
