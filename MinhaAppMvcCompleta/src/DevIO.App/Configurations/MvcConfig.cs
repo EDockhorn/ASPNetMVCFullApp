@@ -21,6 +21,7 @@ namespace DevIO.App.Configurations
                     o.ModelBindingMessageProvider.SetValueMustBeANumberAccessor(x => "O campo deve ser numérico.");
                     o.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Este campo precisa ser preenchido.");
 
+                    // Atributo de segurança:
                     o.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
                     
                     //o.EnableEndpointRouting = false;

@@ -14,7 +14,6 @@ namespace AspNetCoreIdentity.Extensions
             return context.User.Identity.IsAuthenticated &&
                    context.User.Claims.Any(c => c.Type == claimName && c.Value.Contains(claimValue));
         }
-
     }
 
     public class ClaimsAuthorizeAttribute : TypeFilterAttribute
