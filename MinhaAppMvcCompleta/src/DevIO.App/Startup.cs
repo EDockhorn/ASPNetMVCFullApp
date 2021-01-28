@@ -27,7 +27,7 @@ namespace DevIO.App
             //    builder.AddUserSecrets<Startup>();
             //}
 
-            builder.AddUserSecrets<Startup>();
+            //builder.AddUserSecrets<Startup>();
 
             Configuration = builder.Build();
         }

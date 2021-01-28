@@ -99,7 +99,7 @@ namespace DevIO.App.Controllers
         {
             try
             {
-                throw new Exception("Erro no processamento da Edição!");
+                //throw new Exception("Erro no processamento da Edição!");
 
                 var produtoViewModel = await ObterProduto(id);
 
