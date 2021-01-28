@@ -40,6 +40,7 @@ namespace DevIO.App.Controllers
 
         [AllowAnonymous]
         [Route("lista-de-produtos")]
+        [ClaimsAuthorize("Produto", "Listar")]
         public async Task<IActionResult> Index()
         {
             _logger.Debug("Acessando a Index!");
