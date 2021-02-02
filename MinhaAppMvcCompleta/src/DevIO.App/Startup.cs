@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using DevIO.Data.Context;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using KissLog;
 
 namespace DevIO.App
 {
@@ -34,10 +33,6 @@ namespace DevIO.App
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<ILogger>((context) =>
-            {
-                return Logger.Factory.Get();
-            });
 
             services.AddIdentityConfiguration(Configuration);
 
